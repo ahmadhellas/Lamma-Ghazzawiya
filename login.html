@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="سجل الدخول إلى حسابك في لمة غزّاوية." />
+    <title>تسجيل الدخول | لمة غزّاوية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/auth.css" />
+  </head>
+  <body class="auth-page">
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+          <span>لمة <strong>غزّاوية</strong></span>
+        </a>
+
+        <nav class="nav-links" id="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="menu.html">قائمة الطعام</a>
+          <a href="about.html">من نحن</a>
+          <a href="contact.html">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="cart.html" class="cart-link" aria-label="سلة المشتريات">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+
+          <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="auth-main">
+      <div class="container auth-container">
+        <section class="auth-card">
+          <div class="auth-card-header">
+            <a href="index.html" class="auth-logo">
+              <span><i class="fa-solid fa-utensils"></i></span>
+              <strong>لمة غزّاوية</strong>
+            </a>
+
+            <div class="auth-heading">
+              <span class="auth-eyebrow">أهلًا بعودتك</span>
+              <h1>تسجيل <strong>الدخول</strong></h1>
+              <p>سجل دخولك وتابع تجربتك معنا.</p>
+            </div>
+          </div>
+
+          <div class="auth-alert" id="login-alert" role="alert" hidden></div>
+
+          <form id="login-form" novalidate>
+            <div class="auth-field">
+              <label for="login-email">البريد الإلكتروني</label>
+
+              <div class="auth-input-wrapper">
+                <i class="fa-regular fa-envelope"></i>
+                <input
+                  type="email"
+                  id="login-email"
+                  name="email"
+                  placeholder="example@email.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <small class="auth-error" id="login-email-error"></small>
+            </div>
+
+            <div class="auth-field">
+              <label for="login-password">كلمة المرور</label>
+
+              <div class="auth-input-wrapper">
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                  type="password"
+                  id="login-password"
+                  name="password"
+                  placeholder="أدخل كلمة المرور"
+                  autocomplete="current-password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="password-toggle"
+                  data-password-target="login-password"
+                  aria-label="إظهار كلمة المرور"
+                >
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+
+              <small class="auth-error" id="login-password-error"></small>
+            </div>
+
+            <div class="auth-form-options">
+              <label class="auth-checkbox">
+                <input type="checkbox" id="remember-me" />
+                <span>تذكرني</span>
+              </label>
+
+              <a href="contact.html">هل تحتاج إلى مساعدة؟</a>
+            </div>
+
+            <button type="submit" class="auth-submit-btn" id="login-submit">
+              تسجيل الدخول
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </form>
+
+          <div class="auth-divider">
+            <span>أو</span>
+          </div>
+
+          <p class="auth-switch">
+            ليس لديك حساب؟
+            <a href="register.html">أنشئ حسابًا جديدًا</a>
+          </p>
+
+          <a href="index.html" class="auth-back-link">
+            <i class="fa-solid fa-arrow-right"></i>
+            العودة إلى الصفحة الرئيسية
+          </a>
+        </section>
+
+        <aside class="auth-visual">
+          <div class="auth-visual-overlay">
+            <span class="auth-visual-label">أهلًا وسهلًا في لَمّتنا</span>
+
+            <h2>
+              الطعم الأصيل
+              <strong>يجمعنا دائمًا</strong>
+            </h2>
+
+            <p>
+              سجل دخولك واكتشف نكهات من تراثنا الفلسطيني، وخلّي كل وجبة بداية
+              لَمّة جديدة.
+            </p>
+
+            <div class="auth-visual-decoration">
+              <i class="fa-solid fa-heart"></i>
+              <span>لمة غزّاوية... نكهة بتجمعنا</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer auth-footer">
+      <div class="container footer-bottom">
+        <p>
+          © <span id="current-year"></span> لمة غزّاوية. جميع الحقوق محفوظة.
+        </p>
+        <p>صُنع بكل حب من فلسطين <i class="fa-solid fa-heart"></i></p>
+      </div>
+    </footer>
+
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+  </body>
+</html>

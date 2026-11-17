@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>دخول الإدارة | لمة غزّاوية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body class="admin-login-page">
+    <main class="admin-login-wrapper">
+      <section class="admin-login-card">
+        <a href="../index.html" class="admin-login-brand">
+          <span class="admin-brand-icon">
+            <i class="fa-solid fa-utensils"></i>
+          </span>
+          <span>لمة <strong>غزّاوية</strong></span>
+        </a>
+
+        <div class="admin-login-heading">
+          <div class="admin-login-icon">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+
+          <span>منطقة مخصصة للإدارة</span>
+          <h1>مرحبًا بعودتك</h1>
+          <p>سجّل الدخول للوصول إلى لوحة التحكم.</p>
+        </div>
+
+        <div class="admin-alert" id="admin-login-alert" hidden></div>
+
+        <form id="admin-login-form">
+          <div class="admin-form-group">
+            <label for="admin-email">البريد الإلكتروني</label>
+
+            <div class="admin-input-wrapper">
+              <i class="fa-regular fa-envelope"></i>
+              <input
+                type="email"
+                id="admin-email"
+                placeholder="أدخل البريد الإلكتروني"
+                autocomplete="username"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="admin-form-group">
+            <label for="admin-password">كلمة المرور</label>
+
+            <div class="admin-input-wrapper">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                type="password"
+                id="admin-password"
+                placeholder="أدخل كلمة المرور"
+                autocomplete="current-password"
+                required
+              />
+
+              <button
+                type="button"
+                class="admin-password-toggle"
+                id="toggle-admin-password"
+                aria-label="إظهار كلمة المرور"
+              >
+                <i class="fa-regular fa-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="admin-login-submit"
+            id="admin-login-submit"
+          >
+            <span>تسجيل الدخول</span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </form>
+
+        <div class="admin-login-demo">
+          <div class="demo-heading">
+            <i class="fa-solid fa-circle-info"></i>
+            <strong>بيانات الدخول التجريبية</strong>
+          </div>
+
+          <p>البريد: admin@lamma.com</p>
+          <p>كلمة المرور: Admin123</p>
+
+          <button type="button" id="fill-admin-demo">
+            استخدام البيانات التجريبية
+          </button>
+        </div>
+
+        <a href="../index.html" class="back-to-site">
+          <i class="fa-solid fa-arrow-right"></i>
+          العودة إلى الموقع
+        </a>
+      </section>
+
+      <div class="admin-login-decoration">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+    </main>
+
+    <script src="../js/utils/storage.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

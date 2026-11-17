@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إضافة وجبة | لمة غزّاوية</title>
+
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/food-management.css" />
+  </head>
+  <body>
+    <div class="food-page">
+      <aside class="food-sidebar">
+        <div class="food-brand">
+          <span class="brand-icon">🍽️</span>
+          <div>
+            <h2>لمة غزّاوية</h2>
+            <p>لوحة الإدارة</p>
+          </div>
+        </div>
+
+        <nav class="food-nav">
+          <a href="dashboard.html">🏠 الرئيسية</a>
+          <a href="manage-food.html" class="active">🍲 إدارة الوجبات</a>
+          <a href="manage-orders.html">📦 إدارة الطلبات</a>
+          <a href="manage-users.html">👥 إدارة المستخدمين</a>
+          <a href="../index.html">🌐 عرض الموقع</a>
+        </nav>
+
+        <button class="food-logout" id="logoutBtn">تسجيل الخروج ↩</button>
+      </aside>
+
+      <main class="food-main">
+        <header class="food-header">
+          <div>
+            <h1 id="formTitle">إضافة وجبة جديدة 🍲</h1>
+            <p>أدخل تفاصيل الوجبة لإضافتها إلى قائمة الطعام</p>
+          </div>
+
+          <a href="manage-food.html" class="food-secondary-btn">
+            العودة للوجبات ←
+          </a>
+        </header>
+
+        <section class="food-form-card">
+          <form id="foodForm">
+            <div class="food-form-grid">
+              <div class="form-group">
+                <label for="foodName">اسم الوجبة *</label>
+                <input
+                  type="text"
+                  id="foodName"
+                  placeholder="مثال: مشاوي مشكلة"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="foodCategory">تصنيف الوجبة *</label>
+                <select id="foodCategory" required>
+                  <option value="">اختر التصنيف</option>
+                  <option value="مشاوي">مشاوي</option>
+                  <option value="مقبلات">مقبلات</option>
+                  <option value="وجبات رئيسية">وجبات رئيسية</option>
+                  <option value="حلويات">حلويات</option>
+                  <option value="مشروبات">مشروبات</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="foodPrice">السعر (شيكل) *</label>
+                <input
+                  type="number"
+                  id="foodPrice"
+                  min="0.01"
+                  step="0.01"
+                  placeholder="مثال: 45"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="foodImage">رابط صورة الوجبة</label>
+                <input
+                  type="url"
+                  id="foodImage"
+                  placeholder="https://example.com/image.jpg"
+                />
+              </div>
+
+              <div class="form-group full-width">
+                <label for="foodDescription">وصف الوجبة *</label>
+                <textarea
+                  id="foodDescription"
+                  rows="5"
+                  placeholder="اكتب وصفًا شهيًا للوجبة..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group full-width">
+                <label>معاينة الصورة</label>
+                <div class="image-preview" id="imagePreview">
+                  <span>🍽️</span>
+                  <p>ستظهر صورة الوجبة هنا</p>
+                </div>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="availability-label">
+                  <input type="checkbox" id="foodAvailable" checked />
+                  الوجبة متاحة للطلب
+                </label>
+              </div>
+            </div>
+
+            <div class="food-form-actions">
+              <button type="submit" class="food-primary-btn" id="saveFoodBtn">
+                حفظ الوجبة
+              </button>
+
+              <a href="manage-food.html" class="food-secondary-btn"> إلغاء </a>
+            </div>
+
+            <p id="formMessage" class="form-message"></p>
+          </form>
+        </section>
+
+        <footer class="food-footer">
+          جميع الحقوق محفوظة © 2026 - لمة غزّاوية
+        </footer>
+      </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script src="js/food-management.js"></script>
+  </body>
+</html>

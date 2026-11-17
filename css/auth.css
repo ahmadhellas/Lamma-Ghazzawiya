@@ -1,0 +1,503 @@
+/* =====================================
+   AUTH PAGES - LAMMA GHAZZAWIYA
+===================================== */
+
+.auth-page {
+  min-height: 100vh;
+  background: #f8f3eb;
+}
+
+.auth-main {
+  padding: 55px 0 75px;
+}
+
+.auth-container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  max-width: 1050px;
+  min-height: 650px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 20px 65px rgba(73, 48, 38, 0.1);
+}
+
+/* Form Card */
+
+.auth-card {
+  padding: 45px 48px;
+  background: #fff;
+}
+
+.auth-card-header {
+  margin-bottom: 30px;
+}
+
+.auth-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  color: #17110f;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.auth-logo > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #751b25;
+  color: #d99a3d;
+}
+
+.auth-heading .auth-eyebrow {
+  color: #a56c24;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.auth-heading h1 {
+  margin: 8px 0;
+  color: #17110f;
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.auth-heading h1 strong {
+  color: #751b25;
+}
+
+.auth-heading p {
+  color: #958577;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* Fields */
+
+.auth-field {
+  margin-bottom: 20px;
+}
+
+.auth-field label {
+  display: block;
+  margin-bottom: 9px;
+  color: #493026;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.auth-input-wrapper {
+  min-height: 51px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 14px;
+  border: 1px solid #e9dfd3;
+  border-radius: 8px;
+  background: #fff;
+  transition: 0.25s;
+}
+
+.auth-input-wrapper:focus-within {
+  border-color: #d99a3d;
+  box-shadow: 0 0 0 3px rgba(217, 154, 61, 0.12);
+}
+
+.auth-input-wrapper > i {
+  color: #a58c76;
+  font-size: 15px;
+}
+
+.auth-input-wrapper input {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #30241e;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.auth-input-wrapper input::placeholder {
+  color: #b8aa9e;
+}
+
+.password-toggle {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  border: none;
+  background: transparent;
+  color: #a58c76;
+  cursor: pointer;
+}
+
+.password-toggle:hover {
+  color: #751b25;
+}
+
+.auth-error {
+  display: block;
+  min-height: 0;
+  margin-top: 5px;
+  color: #c34242;
+  font-size: 10px;
+}
+
+.auth-field.invalid .auth-input-wrapper {
+  border-color: #c34242;
+}
+
+/* Form Options */
+
+.auth-form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 3px 0 23px;
+}
+
+.auth-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #796b5e;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.auth-checkbox input {
+  width: 15px;
+  height: 15px;
+  accent-color: #751b25;
+  cursor: pointer;
+}
+
+.auth-form-options > a {
+  color: #751b25;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.auth-form-options > a:hover,
+.auth-switch a:hover {
+  color: #d99a3d;
+}
+
+/* Submit */
+
+.auth-submit-btn {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #751b25;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-submit-btn:hover {
+  background: #53131b;
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgba(117, 27, 37, 0.15);
+}
+
+.auth-submit-btn i {
+  color: #d99a3d;
+}
+
+.auth-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Divider */
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0;
+  color: #b4a597;
+  font-size: 11px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #eee5db;
+}
+
+/* Switch */
+
+.auth-switch {
+  color: #88796c;
+  font-size: 12px;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: #751b25;
+  font-weight: 800;
+}
+
+.auth-back-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 25px;
+  color: #9b8b7b;
+  font-size: 11px;
+  transition: 0.2s;
+}
+
+.auth-back-link:hover {
+  color: #751b25;
+}
+
+/* Alerts */
+
+.auth-alert {
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  border: 1px solid #f0caca;
+  border-radius: 8px;
+  background: #fff1f1;
+  color: #a62e2e;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.auth-alert.success {
+  border-color: #cce5d0;
+  background: #f0f9f1;
+  color: #28723c;
+}
+
+.auth-alert[hidden] {
+  display: none;
+}
+
+/* Visual Panel */
+
+.auth-visual {
+  min-height: 650px;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(0deg, rgba(23, 17, 15, 0.96), rgba(23, 17, 15, 0.15)),
+    url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1100&q=85")
+      center/cover;
+}
+
+.auth-visual-overlay {
+  width: 100%;
+  padding: 45px;
+  color: #f3e5cc;
+}
+
+.auth-visual-label {
+  color: #d99a3d;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.auth-visual h2 {
+  margin: 15px 0;
+  font-size: clamp(28px, 3.5vw, 42px);
+  line-height: 1.6;
+}
+
+.auth-visual h2 strong {
+  display: block;
+  color: #d99a3d;
+}
+
+.auth-visual p {
+  max-width: 400px;
+  color: #d8cabb;
+  font-size: 13px;
+  line-height: 2.2;
+}
+
+.auth-visual-decoration {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(243, 229, 204, 0.2);
+  color: #e3d2c0;
+  font-size: 12px;
+}
+
+.auth-visual-decoration i {
+  color: #d99a3d;
+}
+
+/* Register */
+
+.register-main {
+  padding-top: 40px;
+}
+
+.register-container {
+  max-width: 1100px;
+  min-height: 760px;
+}
+
+.register-card {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.register-card .auth-card-header {
+  margin-bottom: 23px;
+}
+
+.register-card .auth-logo {
+  margin-bottom: 20px;
+}
+
+.register-card .auth-field {
+  margin-bottom: 13px;
+}
+
+.register-card .auth-input-wrapper,
+.register-card .auth-input-wrapper input {
+  min-height: 45px;
+  height: 45px;
+}
+
+.register-card .auth-password-strength {
+  margin-top: -5px;
+  margin-bottom: 15px;
+}
+
+.strength-bar {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #eee6dc;
+}
+
+.strength-bar span {
+  width: 0;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  background: #c94b4b;
+  transition: 0.3s;
+}
+
+.auth-password-strength small {
+  display: block;
+  margin-top: 6px;
+  color: #9b8b7b;
+  font-size: 10px;
+}
+
+.auth-terms {
+  margin: 3px 0 10px;
+  line-height: 1.8;
+}
+
+.register-card .auth-divider {
+  margin: 17px 0;
+}
+
+.register-visual {
+  min-height: 760px;
+  background:
+    linear-gradient(0deg, rgba(23, 17, 15, 0.96), rgba(23, 17, 15, 0.15)),
+    url("https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1100&q=85")
+      center/cover;
+}
+
+/* Footer */
+
+.auth-footer {
+  margin-top: 0;
+}
+
+.auth-footer .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #8d7c6e;
+  font-size: 11px;
+}
+
+.auth-footer i {
+  color: #c94b54;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+  .auth-container {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+
+  .auth-visual {
+    display: none;
+  }
+
+  .auth-card {
+    padding: 40px 35px;
+  }
+
+  .register-container {
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 500px) {
+  .auth-main {
+    padding: 25px 12px 45px;
+  }
+
+  .auth-card {
+    padding: 30px 20px;
+  }
+
+  .auth-heading h1 {
+    font-size: 25px;
+  }
+
+  .auth-form-options {
+    align-items: flex-start;
+  }
+
+  .auth-footer .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

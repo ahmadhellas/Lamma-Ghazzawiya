@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إتمام الطلب | لمة غزّاوية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/checkout.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+          <span>لمة <strong>غزّاوية</strong></span>
+        </a>
+
+        <nav class="nav-links" id="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="menu.html">قائمة الطعام</a>
+          <a href="about.html">من نحن</a>
+          <a href="contact.html">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="cart.html" class="cart-link">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+
+          <a href="login.html" class="nav-login">
+            <i class="fa-regular fa-user"></i>
+            <span>حسابي</span>
+          </a>
+
+          <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="checkout-hero">
+        <div class="container">
+          <span>بقيت خطوة واحدة</span>
+          <h1>إتمام <strong>الطلب</strong></h1>
+          <p>أدخل بياناتك لنجهّز طلبك بكل حب</p>
+
+          <div class="checkout-breadcrumb">
+            <a href="index.html">الرئيسية</a>
+            <i class="fa-solid fa-chevron-left"></i>
+            <a href="cart.html">السلة</a>
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>إتمام الطلب</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Checkout -->
+      <section class="checkout-section">
+        <div class="container">
+          <div class="checkout-layout" id="checkout-layout">
+            <!-- Customer Form -->
+            <div class="checkout-form-panel">
+              <div class="checkout-section-heading">
+                <span class="checkout-step">01</span>
+                <div>
+                  <h2>معلومات التوصيل</h2>
+                  <p>أخبرنا أين نرسل طلبك</p>
+                </div>
+              </div>
+
+              <form id="checkout-form" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="customer-name">الاسم الكامل *</label>
+                    <div class="input-wrapper">
+                      <i class="fa-regular fa-user"></i>
+                      <input
+                        type="text"
+                        id="customer-name"
+                        name="customerName"
+                        placeholder="أدخل اسمك الكامل"
+                        autocomplete="name"
+                        required
+                      />
+                    </div>
+                    <small class="field-error" id="name-error"></small>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="customer-phone">رقم الهاتف *</label>
+                    <div class="input-wrapper">
+                      <i class="fa-solid fa-phone"></i>
+                      <input
+                        type="tel"
+                        id="customer-phone"
+                        name="phone"
+                        placeholder="مثال: 0591234567"
+                        autocomplete="tel"
+                        required
+                      />
+                    </div>
+                    <small class="field-error" id="phone-error"></small>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="customer-email"
+                    >البريد الإلكتروني (اختياري)</label
+                  >
+                  <div class="input-wrapper">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input
+                      type="email"
+                      id="customer-email"
+                      name="email"
+                      placeholder="example@email.com"
+                      autocomplete="email"
+                    />
+                  </div>
+                  <small class="field-error" id="email-error"></small>
+                </div>
+
+                <div class="form-group">
+                  <label for="customer-city">المدينة / المنطقة *</label>
+                  <div class="input-wrapper">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <input
+                      type="text"
+                      id="customer-city"
+                      name="city"
+                      placeholder="أدخل المدينة أو المنطقة"
+                      required
+                    />
+                  </div>
+                  <small class="field-error" id="city-error"></small>
+                </div>
+
+                <div class="form-group">
+                  <label for="customer-address">العنوان بالتفصيل *</label>
+                  <div class="input-wrapper textarea-wrapper">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <textarea
+                      id="customer-address"
+                      name="address"
+                      rows="3"
+                      placeholder="اسم الشارع، الحي، أقرب معلم..."
+                      required
+                    ></textarea>
+                  </div>
+                  <small class="field-error" id="address-error"></small>
+                </div>
+
+                <div class="form-group">
+                  <label for="order-notes">ملاحظات إضافية (اختياري)</label>
+                  <textarea
+                    class="notes-textarea"
+                    id="order-notes"
+                    name="notes"
+                    rows="3"
+                    placeholder="أي ملاحظات خاصة بطلبك..."
+                  ></textarea>
+                </div>
+
+                <!-- Payment -->
+                <div class="checkout-section-heading payment-heading">
+                  <span class="checkout-step">02</span>
+                  <div>
+                    <h2>طريقة الدفع</h2>
+                    <p>اختر الطريقة المناسبة لك</p>
+                  </div>
+                </div>
+
+                <div class="payment-options">
+                  <label class="payment-option selected">
+                    <input type="radio" name="payment" value="cash" checked />
+                    <span class="payment-option-icon">
+                      <i class="fa-solid fa-money-bill-wave"></i>
+                    </span>
+                    <span class="payment-option-text">
+                      <strong>الدفع عند الاستلام</strong>
+                      <small>ادفع نقدًا عند وصول الطلب</small>
+                    </span>
+                    <i class="fa-solid fa-circle-check payment-check"></i>
+                  </label>
+
+                  <label class="payment-option">
+                    <input type="radio" name="payment" value="card" />
+                    <span class="payment-option-icon">
+                      <i class="fa-regular fa-credit-card"></i>
+                    </span>
+                    <span class="payment-option-text">
+                      <strong>بطاقة بنكية</strong>
+                      <small>تسجيل طريقة الدفع فقط، دون تحصيل إلكتروني</small>
+                    </span>
+                    <i class="fa-solid fa-circle-check payment-check"></i>
+                  </label>
+                </div>
+
+                <div class="checkout-disclaimer">
+                  <i class="fa-solid fa-circle-info"></i>
+                  <span
+                    >هذا نموذج تجريبي للمشروع. اختيار البطاقة لا ينفذ أي عملية
+                    دفع حقيقية.</span
+                  >
+                </div>
+
+                <button
+                  type="submit"
+                  class="place-order-btn"
+                  id="place-order-btn"
+                >
+                  <i class="fa-solid fa-check"></i>
+                  تأكيد الطلب
+                </button>
+              </form>
+            </div>
+
+            <!-- Order Summary -->
+            <aside class="checkout-summary">
+              <h2>ملخص طلبك</h2>
+
+              <div class="checkout-items" id="checkout-items">
+                <!-- Items rendered by JavaScript -->
+              </div>
+
+              <div class="checkout-summary-lines">
+                <div>
+                  <span>المجموع الفرعي</span>
+                  <strong id="checkout-subtotal">0 ₪</strong>
+                </div>
+
+                <div>
+                  <span>رسوم التوصيل</span>
+                  <strong id="checkout-delivery">10 ₪</strong>
+                </div>
+              </div>
+
+              <div class="checkout-grand-total">
+                <span>الإجمالي النهائي</span>
+                <strong id="checkout-total">0 ₪</strong>
+              </div>
+
+              <a href="cart.html" class="edit-cart-link">
+                <i class="fa-solid fa-pen"></i>
+                تعديل محتويات السلة
+              </a>
+
+              <div class="checkout-trust">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>نحافظ على خصوصية بيانات طلبك</span>
+              </div>
+            </aside>
+          </div>
+
+          <!-- Empty Cart -->
+          <div class="checkout-empty" id="checkout-empty" hidden>
+            <i class="fa-solid fa-basket-shopping"></i>
+            <h2>لا توجد منتجات لإتمام الطلب</h2>
+            <p>أضف بعض الوجبات إلى سلتك أولًا.</p>
+            <a href="menu.html">تصفح قائمة الطعام</a>
+          </div>
+
+          <!-- Success Message -->
+          <div class="order-success" id="order-success" hidden>
+            <div class="success-icon">
+              <i class="fa-solid fa-check"></i>
+            </div>
+
+            <span>تم بنجاح!</span>
+            <h2>شكرًا لثقتك بلمة غزّاوية</h2>
+            <p>تم تسجيل طلبك بنجاح في هذا النموذج التجريبي.</p>
+
+            <div class="success-order-number">
+              رقم الطلب:
+              <strong id="success-order-id"></strong>
+            </div>
+
+            <a href="menu.html" class="success-back-btn">
+              العودة إلى قائمة الطعام
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <p>
+          © <span id="current-year"></span> لمة غزّاوية. جميع الحقوق محفوظة.
+        </p>
+        <p>صُنع بكل حب من فلسطين <i class="fa-solid fa-heart"></i></p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/checkout.js"></script>
+  </body>
+</html>

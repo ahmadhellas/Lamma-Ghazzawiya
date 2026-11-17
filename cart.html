@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سلة المشتريات | لمة غزّاوية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+          <span>لمة <strong>غزّاوية</strong></span>
+        </a>
+
+        <nav class="nav-links" id="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="menu.html">قائمة الطعام</a>
+          <a href="about.html">من نحن</a>
+          <a href="contact.html">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a
+            href="cart.html"
+            class="cart-link active"
+            aria-label="سلة المشتريات"
+          >
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+
+          <a href="login.html" class="nav-login">
+            <i class="fa-regular fa-user"></i>
+            <span>حسابي</span>
+          </a>
+
+          <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Page Hero -->
+      <section class="cart-hero">
+        <div class="container">
+          <span>خطوة أقرب إلى وجبتك المفضلة</span>
+          <h1>سلة <strong>المشتريات</strong></h1>
+          <p>راجع اختياراتك قبل إتمام طلبك</p>
+
+          <div class="cart-breadcrumb">
+            <a href="index.html">الرئيسية</a>
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>سلة المشتريات</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cart Section -->
+      <section class="cart-section">
+        <div class="container">
+          <div class="cart-heading">
+            <div>
+              <span class="cart-eyebrow">اختياراتك الشهية</span>
+              <h2>محتويات السلة</h2>
+            </div>
+
+            <span class="cart-items-count" id="cart-items-count">
+              0 منتجات
+            </span>
+          </div>
+
+          <div class="cart-layout" id="cart-layout">
+            <!-- Cart Items -->
+            <div class="cart-items-panel">
+              <div class="cart-table-heading">
+                <span>الوجبة</span>
+                <span>السعر</span>
+                <span>الكمية</span>
+                <span>الإجمالي</span>
+              </div>
+
+              <div id="cart-items">
+                <!-- Cart items rendered by JavaScript -->
+              </div>
+
+              <div class="cart-actions-bottom">
+                <a href="menu.html" class="continue-shopping">
+                  <i class="fa-solid fa-arrow-right"></i>
+                  متابعة التسوق
+                </a>
+
+                <button id="clear-cart" class="clear-cart-btn">
+                  <i class="fa-regular fa-trash-can"></i>
+                  إفراغ السلة
+                </button>
+              </div>
+            </div>
+
+            <!-- Summary -->
+            <aside class="cart-summary">
+              <h3>ملخص الطلب</h3>
+
+              <div class="summary-line">
+                <span>عدد المنتجات</span>
+                <strong id="summary-quantity">0</strong>
+              </div>
+
+              <div class="summary-line">
+                <span>المجموع الفرعي</span>
+                <strong id="subtotal">0 ₪</strong>
+              </div>
+
+              <div class="summary-line">
+                <span>رسوم التوصيل</span>
+                <strong id="delivery-fee">10 ₪</strong>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="summary-total">
+                <span>الإجمالي النهائي</span>
+                <strong id="grand-total">0 ₪</strong>
+              </div>
+
+              <a href="checkout.html" id="checkout-btn" class="checkout-link">
+                متابعة إلى الدفع
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+
+              <div class="secure-note">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>بيانات طلبك محفوظة بأمان على جهازك</span>
+              </div>
+
+              <div class="payment-methods">
+                <span>طرق الدفع المتاحة</span>
+                <div>
+                  <i class="fa-solid fa-money-bill-wave"></i>
+                  <i class="fa-solid fa-credit-card"></i>
+                  <i class="fa-solid fa-wallet"></i>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <!-- Empty Cart -->
+          <div class="empty-cart" id="empty-cart" hidden>
+            <div class="empty-cart-icon">
+              <i class="fa-solid fa-basket-shopping"></i>
+            </div>
+
+            <h2>سلتك فارغة حاليًا!</h2>
+            <p>يبدو أنك لم تضف أي وجبة بعد. اكتشف قائمتنا واختر ما تحب.</p>
+
+            <a href="menu.html" class="empty-cart-button">
+              <i class="fa-solid fa-utensils"></i>
+              تصفح قائمة الطعام
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Banner -->
+      <section class="cart-banner">
+        <div class="container">
+          <i class="fa-solid fa-heart"></i>
+          <div>
+            <h2>لمة غزّاوية... نكهة بتجمعنا</h2>
+            <p>أشهى الأطباق تُحضّر لتكون جزءًا من لَمّتكم.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <p>
+          © <span id="current-year"></span> لمة غزّاوية. جميع الحقوق محفوظة.
+        </p>
+        <p>صُنع بكل حب من فلسطين <i class="fa-solid fa-heart"></i></p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>

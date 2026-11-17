@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إدارة الوجبات | لمة غزّاوية</title>
+
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/food-management.css" />
+  </head>
+  <body>
+    <div class="food-page">
+      <aside class="food-sidebar">
+        <div class="food-brand">
+          <span class="brand-icon">🍽️</span>
+          <div>
+            <h2>لمة غزّاوية</h2>
+            <p>لوحة الإدارة</p>
+          </div>
+        </div>
+
+        <nav class="food-nav">
+          <a href="dashboard.html">🏠 الرئيسية</a>
+          <a href="manage-food.html" class="active">🍲 إدارة الوجبات</a>
+          <a href="manage-orders.html">📦 إدارة الطلبات</a>
+          <a href="manage-users.html">👥 إدارة المستخدمين</a>
+          <a href="../index.html">🌐 عرض الموقع</a>
+        </nav>
+
+        <button class="food-logout" id="logoutBtn">تسجيل الخروج ↩</button>
+      </aside>
+
+      <main class="food-main">
+        <header class="food-header">
+          <div>
+            <h1>إدارة الوجبات 🍲</h1>
+            <p>تحكم في قائمة الطعام الخاصة بمطعم لمة غزّاوية</p>
+          </div>
+
+          <a href="add-food.html" class="food-primary-btn">
+            + إضافة وجبة جديدة
+          </a>
+        </header>
+
+        <section class="food-stats">
+          <div class="food-stat-card">
+            <span>🍽️</span>
+            <div>
+              <p>إجمالي الوجبات</p>
+              <h2 id="totalFoods">0</h2>
+            </div>
+          </div>
+
+          <div class="food-stat-card">
+            <span>✅</span>
+            <div>
+              <p>الوجبات المتاحة</p>
+              <h2 id="availableFoods">0</h2>
+            </div>
+          </div>
+
+          <div class="food-stat-card">
+            <span>⛔</span>
+            <div>
+              <p>غير المتاحة</p>
+              <h2 id="unavailableFoods">0</h2>
+            </div>
+          </div>
+        </section>
+
+        <section class="food-content">
+          <div class="food-tools">
+            <div>
+              <h2>قائمة الوجبات</h2>
+              <p>ابحث عن الوجبات وتحكم بها بسهولة</p>
+            </div>
+
+            <div class="food-filters">
+              <input
+                type="search"
+                id="foodSearch"
+                placeholder="ابحث عن وجبة..."
+              />
+
+              <select id="categoryFilter">
+                <option value="all">كل التصنيفات</option>
+                <option value="مشاوي">مشاوي</option>
+                <option value="مقبلات">مقبلات</option>
+                <option value="وجبات رئيسية">وجبات رئيسية</option>
+                <option value="حلويات">حلويات</option>
+                <option value="مشروبات">مشروبات</option>
+              </select>
+
+              <select id="availabilityFilter">
+                <option value="all">كل الحالات</option>
+                <option value="available">متاحة</option>
+                <option value="unavailable">غير متاحة</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="food-table-wrapper">
+            <table class="food-table">
+              <thead>
+                <tr>
+                  <th>الصورة</th>
+                  <th>اسم الوجبة</th>
+                  <th>التصنيف</th>
+                  <th>السعر</th>
+                  <th>الحالة</th>
+                  <th>الإجراءات</th>
+                </tr>
+              </thead>
+
+              <tbody id="foodsTableBody">
+                <!-- الوجبات تظهر هنا بواسطة JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div id="emptyFoods" class="empty-foods hidden">
+            <span>🍽️</span>
+            <h3>لا توجد وجبات</h3>
+            <p>لم نعثر على وجبات مطابقة لبحثك.</p>
+          </div>
+        </section>
+
+        <footer class="food-footer">
+          جميع الحقوق محفوظة © 2026 - لمة غزّاوية
+        </footer>
+      </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script src="js/food-management.js"></script>
+  </body>
+</html>

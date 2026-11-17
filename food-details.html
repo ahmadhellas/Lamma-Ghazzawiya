@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تفاصيل الوجبة | لمة غزّاوية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/food-details.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+          <span>لمة <strong>غزّاوية</strong></span>
+        </a>
+
+        <nav class="nav-links" id="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="menu.html">قائمة الطعام</a>
+          <a href="about.html">من نحن</a>
+          <a href="contact.html">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="cart.html" class="cart-link" aria-label="سلة المشتريات">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+
+          <a href="login.html" class="nav-login">
+            <i class="fa-regular fa-user"></i>
+            <span>حسابي</span>
+          </a>
+
+          <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Breadcrumb -->
+      <div class="details-breadcrumb">
+        <div class="container">
+          <a href="index.html">الرئيسية</a>
+          <i class="fa-solid fa-chevron-left"></i>
+          <a href="menu.html">قائمة الطعام</a>
+          <i class="fa-solid fa-chevron-left"></i>
+          <span>تفاصيل الوجبة</span>
+        </div>
+      </div>
+
+      <!-- Food Details -->
+      <section class="food-details-section">
+        <div class="container">
+          <div class="details-layout" id="details-container">
+            <!-- Food Image -->
+            <div class="details-image-wrapper">
+              <img id="details-image" src="" alt="صورة الوجبة" />
+
+              <span class="details-category" id="details-category">
+                أطباق رئيسية
+              </span>
+            </div>
+
+            <!-- Food Information -->
+            <div class="details-info">
+              <span class="details-eyebrow">
+                <i class="fa-solid fa-star"></i>
+                مذاق أصيل من مطبخنا
+              </span>
+
+              <h1 id="details-name">اسم الوجبة</h1>
+
+              <p class="details-description" id="details-description">
+                وصف الوجبة سيظهر هنا.
+              </p>
+
+              <div class="details-divider"></div>
+
+              <div class="details-price-row">
+                <span>سعر الوجبة</span>
+                <strong id="details-price">0 ₪</strong>
+              </div>
+
+              <div class="details-features">
+                <div>
+                  <i class="fa-solid fa-leaf"></i>
+                  <span>مكونات طازجة</span>
+                </div>
+
+                <div>
+                  <i class="fa-solid fa-fire"></i>
+                  <span>تحضير يومي</span>
+                </div>
+
+                <div>
+                  <i class="fa-solid fa-heart"></i>
+                  <span>محضّر بحب</span>
+                </div>
+              </div>
+
+              <!-- Quantity -->
+              <div class="quantity-area">
+                <label>الكمية المطلوبة</label>
+
+                <div class="quantity-control">
+                  <button id="increase-quantity" aria-label="زيادة الكمية">
+                    <i class="fa-solid fa-plus"></i>
+                  </button>
+
+                  <span id="quantity-value">1</span>
+
+                  <button id="decrease-quantity" aria-label="تقليل الكمية">
+                    <i class="fa-solid fa-minus"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Add to Cart -->
+              <button class="details-add-cart" id="add-details-cart">
+                <i class="fa-solid fa-cart-plus"></i>
+                إضافة إلى السلة
+              </button>
+
+              <a href="menu.html" class="back-to-menu">
+                <i class="fa-solid fa-arrow-right"></i>
+                العودة إلى قائمة الطعام
+              </a>
+            </div>
+          </div>
+
+          <!-- Not Found -->
+          <div class="details-not-found" id="details-not-found" hidden>
+            <i class="fa-solid fa-face-frown"></i>
+            <h2>عذرًا، لم نعثر على هذه الوجبة</h2>
+            <p>ربما تم حذف الوجبة أو أن الرابط غير صحيح.</p>
+            <a href="menu.html" class="details-add-cart">
+              العودة إلى قائمة الطعام
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- More Food Banner -->
+      <section class="details-banner">
+        <div class="container">
+          <div>
+            <span>لمة غزّاوية</span>
+            <h2>اكتشف المزيد من نكهاتنا الأصيلة</h2>
+            <p>تشكيلة من الأطباق التي تجمع العائلة حول مائدة واحدة.</p>
+          </div>
+
+          <a href="menu.html">
+            تصفح قائمة الطعام
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <p>
+          © <span id="current-year"></span> لمة غزّاوية. جميع الحقوق محفوظة.
+        </p>
+        <p>صُنع بكل حب من فلسطين <i class="fa-solid fa-heart"></i></p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/food-details.js"></script>
+  </body>
+</html>

@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>لمة غزّاوية | نكهة من قلب فلسطين</title>
+
+    <meta
+      name="description"
+      content="لمة غزّاوية، مطعم شرقي وعربي يقدم أشهى المأكولات الفلسطينية والعربية بأجود المكونات."
+    />
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Home CSS -->
+    <link rel="stylesheet" href="css/home.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+      <div class="container navbar-content">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+
+          <div class="logo-text">
+            <h2>لمة غزّاوية</h2>
+            <span>نكهة من قلب فلسطين</span>
+          </div>
+        </a>
+
+        <nav class="nav-links">
+          <a href="index.html" class="active">الرئيسية</a>
+
+          <a href="menu.html">قائمة الطعام</a>
+
+          <a href="about.html">من نحن</a>
+
+          <a href="contact.html">تواصل معنا</a>
+
+          <a href="my-orders.html">طلباتي</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="cart.html" class="cart-link" aria-label="سلة المشتريات">
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            <span class="cart-count">0</span>
+          </a>
+
+          <a href="menu.html" class="btn btn-primary nav-order-btn">
+            اطلب الآن
+          </a>
+
+          <button class="menu-toggle" aria-label="فتح القائمة">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-badge">
+            <i class="fa-solid fa-star"></i>
+            أهلاً وسهلاً في لمة غزّاوية
+          </span>
+
+          <h1>
+            لمة غزّاوية...
+            <br />
+            <span>طعم الأصالة</span>
+            في كل لقمة
+          </h1>
+
+          <p class="hero-description">
+            من قلب التراث الفلسطيني، نقدم لكم أشهى الأطباق الشرقية والعربية
+            المحضرة بحب، لتكون كل وجبة حكاية من الأصالة والكرم واللمة الحلوة.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="menu.html" class="btn btn-primary">
+              اكتشف قائمة الطعام
+              <i class="fa-solid fa-arrow-left"></i>
+            </a>
+
+            <a href="about.html" class="btn btn-outline"> اكتشف حكايتنا </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <h3>+25</h3>
+              <p>صنف من الطعام</p>
+            </div>
+
+            <div class="hero-stat">
+              <h3>100%</h3>
+              <p>طعم أصيل</p>
+            </div>
+
+            <div class="hero-stat">
+              <h3>24/7</h3>
+              <p>لخدمتكم</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+      <div class="container features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fa-solid fa-leaf"></i>
+          </div>
+
+          <div>
+            <h3>مكونات طازجة</h3>
+            <p>نختار أجود المكونات لوجباتنا.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fa-solid fa-heart"></i>
+          </div>
+
+          <div>
+            <h3>طعم أصيل</h3>
+            <p>وصفات شرقية تحضر بكل حب.</p>
+          </div>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+
+          <div>
+            <h3>توصيل سريع</h3>
+            <p>وجبتك المفضلة تصلك أينما كنت.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED MEALS ================= -->
+
+    <section class="section featured-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle"> اختيارات من مطبخنا </span>
+
+          <h2 class="section-title">أشهى أطباقنا المميزة</h2>
+
+          <div class="gold-line"></div>
+
+          <p class="section-description">
+            اخترنا لكم مجموعة من أشهى الأطباق التي تجمع بين النكهة الشرقية
+            والأصالة الفلسطينية.
+          </p>
+        </div>
+
+        <!-- Meals are added using JavaScript -->
+
+        <div class="meals-grid" id="featured-meals"></div>
+
+        <div class="view-all">
+          <a href="menu.html" class="btn btn-secondary">
+            مشاهدة جميع الوجبات
+
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT PREVIEW ================= -->
+
+    <section class="section about-preview">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img
+            src="https://images.unsplash.com/photo-1547592180-85f173990554?w=900"
+            alt="مائدة طعام شرقي"
+          />
+        </div>
+
+        <div class="about-content">
+          <span class="section-subtitle"> حكايتنا تبدأ من هنا </span>
+
+          <h2 class="section-title">
+            لمة غزّاوية...
+
+            <br />
+
+            أكثر من مجرد مطعم
+          </h2>
+
+          <div class="gold-line" style="margin-right: 0"></div>
+
+          <p>
+            نحن في لمة غزّاوية نؤمن أن الطعام ليس مجرد وجبة، بل هو حكاية تجمع
+            العائلة والأصدقاء. استلهمنا هويتنا من المطبخ الفلسطيني والعربي،
+            لنقدم لكم تجربة مليئة بالنكهات الأصيلة والضيافة التي تشبه بيوتنا.
+          </p>
+
+          <a href="about.html" class="btn btn-primary">
+            اعرف قصتنا
+
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+
+    <section class="section cta-section">
+      <div class="container">
+        <h2>جاهز تعيش أحلى لمة؟</h2>
+
+        <p>اختار وجبتك المفضلة وخلي الطعم يحكي الحكاية.</p>
+
+        <a href="menu.html" class="btn btn-primary">
+          اطلب وجبتك الآن
+
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <h3>لمة غزّاوية</h3>
+
+            <p>
+              من قلب فلسطين، نقدم لكم أشهى المأكولات الشرقية والعربية بنكهات
+              أصيلة، تجمعنا على سفرة واحدة.
+            </p>
+
+            <p style="color: var(--gold-color)">لمة ومحبة ونكهة أصيلة 🇵🇸</p>
+          </div>
+
+          <div>
+            <h3>روابط سريعة</h3>
+
+            <ul class="footer-links">
+              <li><a href="index.html">الرئيسية</a></li>
+
+              <li><a href="menu.html">قائمة الطعام</a></li>
+
+              <li><a href="about.html">من نحن</a></li>
+
+              <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>خدماتنا</h3>
+
+            <ul class="footer-links">
+              <li><a href="menu.html">طلب الطعام</a></li>
+
+              <li><a href="cart.html">سلة المشتريات</a></li>
+
+              <li><a href="my-orders.html">طلباتي</a></li>
+
+              <li><a href="login.html">تسجيل الدخول</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>تواصل معنا</h3>
+
+            <ul class="footer-links">
+              <li>
+                <i class="fa-solid fa-location-dot"></i>
+                فلسطين
+              </li>
+
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                +970 000 000 000
+              </li>
+
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                info@lamma.com
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            جميع الحقوق محفوظة ©
+
+            <span id="current-year"></span>
+
+            لمطعم لمة غزّاوية
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <script src="js/utils/storage.js"></script>
+
+    <script src="js/utils/helpers.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <script src="js/home.js"></script>
+  </body>
+</html>

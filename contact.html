@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="تواصل مع فريق لمة غزّاوية للاستفسارات والملاحظات والاقتراحات."
+    />
+    <title>تواصل معنا | لمة غزّاوية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+          <span>لمة <strong>غزّاوية</strong></span>
+        </a>
+
+        <nav class="nav-links" id="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="menu.html">قائمة الطعام</a>
+          <a href="about.html">من نحن</a>
+          <a href="contact.html" class="active">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="cart.html" class="cart-link" aria-label="سلة المشتريات">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+
+          <a href="login.html" class="nav-login">
+            <i class="fa-regular fa-user"></i>
+            <span>حسابي</span>
+          </a>
+
+          <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="contact-hero">
+        <div class="container">
+          <span>يسعدنا نسمع منك</span>
+
+          <h1>خلينا <strong>نتواصل</strong></h1>
+
+          <p>عندك سؤال أو اقتراح أو ملاحظة؟ فريق لمة غزّاوية يرحب برسائلك.</p>
+
+          <div class="contact-breadcrumb">
+            <a href="index.html">الرئيسية</a>
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>تواصل معنا</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Info -->
+      <section class="contact-info-section">
+        <div class="container">
+          <div class="contact-info-heading">
+            <span class="section-eyebrow">نحن هنا لمساعدتك</span>
+            <h2>تواصل معنا <strong>بالطريقة المناسبة لك</strong></h2>
+            <p>اختر وسيلة التواصل التي تفضلها أو أرسل لنا رسالة مباشرة.</p>
+          </div>
+
+          <div class="contact-info-grid">
+            <article class="contact-info-card">
+              <div class="contact-info-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <h3>اتصل بنا</h3>
+              <p>يسعدنا استقبال استفساراتك.</p>
+              <span class="contact-info-value">رقم التواصل غير مضاف</span>
+            </article>
+
+            <article class="contact-info-card">
+              <div class="contact-info-icon">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <h3>البريد الإلكتروني</h3>
+              <p>للاستفسارات والاقتراحات.</p>
+              <span class="contact-info-value">البريد غير مضاف</span>
+            </article>
+
+            <article class="contact-info-card">
+              <div class="contact-info-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <h3>موقعنا</h3>
+              <p>نعتز بجذورنا الفلسطينية.</p>
+              <span class="contact-info-value">فلسطين</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section class="contact-main-section">
+        <div class="container contact-main-grid">
+          <div class="contact-form-panel">
+            <div class="contact-form-heading">
+              <span class="section-eyebrow">رسالتك تهمنا</span>
+              <h2>أرسل لنا <strong>رسالة</strong></h2>
+              <p>املأ البيانات التالية وسنكون سعداء بقراءة رسالتك.</p>
+            </div>
+
+            <div class="contact-success-message" id="contact-success" hidden>
+              <i class="fa-solid fa-circle-check"></i>
+              <div>
+                <strong>تم حفظ رسالتك بنجاح!</strong>
+                <p>شكرًا لتواصلك معنا. هذه نسخة تجريبية من نموذج التواصل.</p>
+              </div>
+            </div>
+
+            <form id="contact-form" novalidate>
+              <div class="contact-form-row">
+                <div class="contact-form-group">
+                  <label for="contact-name">الاسم الكامل *</label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    placeholder="أدخل اسمك"
+                    required
+                  />
+                  <small class="contact-error" id="contact-name-error"></small>
+                </div>
+
+                <div class="contact-form-group">
+                  <label for="contact-email">البريد الإلكتروني *</label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    placeholder="example@email.com"
+                    required
+                  />
+                  <small class="contact-error" id="contact-email-error"></small>
+                </div>
+              </div>
+
+              <div class="contact-form-group">
+                <label for="contact-subject">موضوع الرسالة *</label>
+                <input
+                  type="text"
+                  id="contact-subject"
+                  name="subject"
+                  placeholder="ما موضوع رسالتك؟"
+                  required
+                />
+                <small class="contact-error" id="contact-subject-error"></small>
+              </div>
+
+              <div class="contact-form-group">
+                <label for="contact-category">نوع الرسالة</label>
+                <select id="contact-category" name="category">
+                  <option value="استفسار عام">استفسار عام</option>
+                  <option value="استفسار عن طلب">استفسار عن طلب</option>
+                  <option value="اقتراح">اقتراح</option>
+                  <option value="شكوى">شكوى</option>
+                  <option value="أخرى">أخرى</option>
+                </select>
+              </div>
+
+              <div class="contact-form-group">
+                <label for="contact-message">الرسالة *</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="6"
+                  placeholder="اكتب رسالتك هنا..."
+                  required
+                ></textarea>
+                <small class="contact-error" id="contact-message-error"></small>
+              </div>
+
+              <button
+                type="submit"
+                class="contact-submit-btn"
+                id="contact-submit"
+              >
+                إرسال الرسالة
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Side Information -->
+          <aside class="contact-side-panel">
+            <div class="contact-side-image">
+              <img
+                src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=85"
+                alt="مائدة طعام"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="contact-side-content">
+              <span>لمة غزّاوية</span>
+
+              <h2>كل رسالة إلها مكان عندنا</h2>
+
+              <p>
+                نؤمن أن التواصل الجيد هو بداية تجربة جميلة. شاركنا رأيك أو
+                استفسارك، وساعدنا في تطوير تجربتك معنا.
+              </p>
+
+              <div class="contact-side-note">
+                <i class="fa-solid fa-heart"></i>
+                <span>شكرًا لأنك جزء من لَمّتنا.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="contact-faq-section">
+        <div class="container">
+          <div class="contact-faq-heading">
+            <span class="section-eyebrow">قد تجد إجابتك هنا</span>
+            <h2>أسئلة <strong>شائعة</strong></h2>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>
+                كيف يمكنني طلب وجبة؟
+                <i class="fa-solid fa-plus"></i>
+              </summary>
+              <p>
+                افتح قائمة الطعام، اختر الوجبات التي تحبها، أضفها إلى السلة ثم
+                انتقل إلى صفحة إتمام الطلب.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                كيف يمكنني تعديل طلب قبل تأكيده؟
+                <i class="fa-solid fa-plus"></i>
+              </summary>
+              <p>
+                يمكنك الرجوع إلى سلة المشتريات وتعديل الكميات أو حذف الوجبات قبل
+                تأكيد الطلب.
+              </p>
+            </details>
+
+            <details class="faq-item">
+              <summary>
+                هل يمكنني إرسال اقتراح أو شكوى؟
+                <i class="fa-solid fa-plus"></i>
+              </summary>
+              <p>
+                بالتأكيد، يمكنك استخدام نموذج التواصل وإرسال اقتراحك أو ملاحظتك
+                إلينا.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <p>
+          © <span id="current-year"></span> لمة غزّاوية. جميع الحقوق محفوظة.
+        </p>
+        <p>صُنع بكل حب من فلسطين <i class="fa-solid fa-heart"></i></p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+  </body>
+</html>

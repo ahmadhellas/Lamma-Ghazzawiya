@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>قائمة الطعام | لمة غزّاوية</title>
+
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+          <span>لمة <strong>غزّاوية</strong></span>
+        </a>
+
+        <nav class="nav-links" id="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="menu.html" class="active">قائمة الطعام</a>
+          <a href="about.html">من نحن</a>
+          <a href="contact.html">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="cart.html" class="cart-link" aria-label="سلة المشتريات">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+
+          <a href="login.html" class="nav-login">
+            <i class="fa-regular fa-user"></i>
+            <span>حسابي</span>
+          </a>
+
+          <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Page Hero -->
+      <section class="menu-hero">
+        <div class="menu-hero-overlay"></div>
+
+        <div class="container menu-hero-content">
+          <span class="section-subtitle">نكهات من قلب فلسطين</span>
+          <h1>قائمة <span>الطعام</span></h1>
+          <p>اكتشف أشهى الأطباق الغزّاوية المحضّرة بكل حب</p>
+
+          <div class="breadcrumb">
+            <a href="index.html">الرئيسية</a>
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>قائمة الطعام</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Menu Section -->
+      <section class="menu-section">
+        <div class="container">
+          <div class="menu-heading">
+            <div>
+              <span class="section-subtitle">مذاق لا يُنسى</span>
+              <h2>اكتشف <span>أطباقنا</span></h2>
+              <p>اختر طبقك المفضل من تشكيلتنا المميزة</p>
+            </div>
+
+            <div class="menu-total">
+              <i class="fa-solid fa-bowl-food"></i>
+              <span id="food-total">0 وجبة</span>
+            </div>
+          </div>
+
+          <!-- Search and Filters -->
+          <div class="menu-tools">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="search"
+                id="search-input"
+                placeholder="ابحث عن وجبتك المفضلة..."
+              />
+              <button id="clear-search" aria-label="مسح البحث">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+
+            <div class="sort-box">
+              <label for="sort-select">
+                <i class="fa-solid fa-arrow-down-wide-short"></i>
+                ترتيب حسب:
+              </label>
+
+              <select id="sort-select">
+                <option value="default">الأكثر تميزاً</option>
+                <option value="low-high">السعر: من الأقل للأعلى</option>
+                <option value="high-low">السعر: من الأعلى للأقل</option>
+                <option value="name">الاسم: أبجدياً</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="category-filter" id="category-filter">
+            <button class="category-btn active" data-category="all">
+              <i class="fa-solid fa-border-all"></i>
+              الكل
+            </button>
+
+            <button class="category-btn" data-category="main">
+              <i class="fa-solid fa-bowl-food"></i>
+              أطباق رئيسية
+            </button>
+
+            <button class="category-btn" data-category="grills">
+              <i class="fa-solid fa-fire-burner"></i>
+              مشاوي
+            </button>
+
+            <button class="category-btn" data-category="appetizers">
+              <i class="fa-solid fa-leaf"></i>
+              مقبلات
+            </button>
+
+            <button class="category-btn" data-category="desserts">
+              <i class="fa-solid fa-cookie-bite"></i>
+              حلويات
+            </button>
+          </div>
+
+          <!-- Price Filter -->
+          <div class="price-filter">
+            <div class="price-filter-info">
+              <label for="price-range">
+                <i class="fa-solid fa-filter"></i>
+                الحد الأعلى للسعر
+              </label>
+              <span id="price-value">100 ₪</span>
+            </div>
+
+            <input
+              type="range"
+              id="price-range"
+              min="10"
+              max="100"
+              value="100"
+              step="5"
+            />
+          </div>
+
+          <!-- Food Cards -->
+          <div class="food-grid" id="food-grid">
+            <!-- يتم عرض الوجبات باستخدام JavaScript -->
+          </div>
+
+          <!-- Empty State -->
+          <div class="empty-state" id="empty-state" hidden>
+            <div class="empty-icon">
+              <i class="fa-solid fa-bowl-food"></i>
+            </div>
+            <h3>لم نعثر على وجبات!</h3>
+            <p>جرّب تغيير كلمات البحث أو اختيار تصنيف آخر.</p>
+            <button class="btn btn-primary" id="reset-filters">
+              <i class="fa-solid fa-rotate-right"></i>
+              إعادة ضبط الفلاتر
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Banner -->
+      <section class="menu-banner">
+        <div class="container menu-banner-content">
+          <div>
+            <span>لمة بتجمعنا</span>
+            <h2>الطعم الأصيل... من أرض فلسطين</h2>
+            <p>كل طبق حكاية، وكل لقمة إلها نكهة خاصة.</p>
+          </div>
+
+          <a href="about.html" class="btn btn-light">
+            اكتشف حكايتنا
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <p>
+          © <span id="current-year"></span> لمة غزّاوية. جميع الحقوق محفوظة.
+        </p>
+        <p>صُنع بكل حب من فلسطين <i class="fa-solid fa-heart"></i></p>
+      </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+  </body>
+</html>

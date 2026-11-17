@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="تابع طلباتك السابقة والحالية في لمة غزّاوية."
+    />
+    <title>طلباتي | لمة غزّاوية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/orders.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <span class="logo-icon"><i class="fa-solid fa-utensils"></i></span>
+          <span>لمة <strong>غزّاوية</strong></span>
+        </a>
+
+        <nav class="nav-links" id="nav-links">
+          <a href="index.html">الرئيسية</a>
+          <a href="menu.html">قائمة الطعام</a>
+          <a href="about.html">من نحن</a>
+          <a href="contact.html">تواصل معنا</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a href="cart.html" class="cart-link" aria-label="سلة المشتريات">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+
+          <a href="login.html" class="nav-login">
+            <i class="fa-regular fa-user"></i>
+            <span>حسابي</span>
+          </a>
+
+          <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Page Hero -->
+      <section class="orders-hero">
+        <div class="container">
+          <span class="orders-hero-label">كل طلباتك في مكان واحد</span>
+          <h1>طلباتي <strong>ومشترياتي</strong></h1>
+          <p>تابع طلباتك السابقة وتعرّف على تفاصيل كل طلب بسهولة.</p>
+
+          <div class="orders-breadcrumb">
+            <a href="index.html">الرئيسية</a>
+            <i class="fa-solid fa-chevron-left"></i>
+            <span>طلباتي</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Orders Content -->
+      <section class="orders-section">
+        <div class="container">
+          <!-- User Welcome -->
+          <div class="orders-welcome">
+            <div class="orders-welcome-icon">
+              <i class="fa-regular fa-user"></i>
+            </div>
+
+            <div>
+              <span>أهلًا بك</span>
+              <h2 id="orders-user-name">عميلنا العزيز</h2>
+              <p>هنا يمكنك متابعة جميع طلباتك.</p>
+            </div>
+          </div>
+
+          <!-- Statistics -->
+          <div class="orders-stats">
+            <div class="order-stat-card">
+              <div class="order-stat-icon total-icon">
+                <i class="fa-solid fa-receipt"></i>
+              </div>
+              <div>
+                <span>إجمالي الطلبات</span>
+                <strong id="total-orders">0</strong>
+              </div>
+            </div>
+
+            <div class="order-stat-card">
+              <div class="order-stat-icon pending-icon">
+                <i class="fa-regular fa-clock"></i>
+              </div>
+              <div>
+                <span>قيد المتابعة</span>
+                <strong id="pending-orders">0</strong>
+              </div>
+            </div>
+
+            <div class="order-stat-card">
+              <div class="order-stat-icon completed-icon">
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div>
+                <span>طلبات مكتملة</span>
+                <strong id="completed-orders">0</strong>
+              </div>
+            </div>
+
+            <div class="order-stat-card">
+              <div class="order-stat-icon money-icon">
+                <i class="fa-solid fa-wallet"></i>
+              </div>
+              <div>
+                <span>إجمالي المشتريات</span>
+                <strong id="total-spent">0 ₪</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Orders Toolbar -->
+          <div class="orders-toolbar">
+            <div class="orders-toolbar-title">
+              <h2>سجل الطلبات</h2>
+              <span id="orders-count-label">0 طلب</span>
+            </div>
+
+            <div class="orders-filters">
+              <div class="orders-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                  type="search"
+                  id="orders-search"
+                  placeholder="ابحث برقم الطلب..."
+                />
+              </div>
+
+              <select id="orders-filter">
+                <option value="all">كل الطلبات</option>
+                <option value="pending">قيد المراجعة</option>
+                <option value="processing">قيد التجهيز</option>
+                <option value="completed">مكتمل</option>
+                <option value="cancelled">ملغي</option>
+              </select>
+
+              <select id="orders-sort">
+                <option value="newest">الأحدث أولًا</option>
+                <option value="oldest">الأقدم أولًا</option>
+                <option value="highest">الأعلى سعرًا</option>
+                <option value="lowest">الأقل سعرًا</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Orders List -->
+          <div class="orders-list" id="orders-list">
+            <!-- Orders will be displayed by JavaScript -->
+          </div>
+
+          <!-- Empty State -->
+          <div class="orders-empty" id="orders-empty" hidden>
+            <div class="orders-empty-icon">
+              <i class="fa-solid fa-receipt"></i>
+            </div>
+
+            <h3>لا توجد طلبات حتى الآن</h3>
+
+            <p>لم تقم بإجراء أي طلب بعد. اكتشف قائمتنا واختر وجبتك المفضلة.</p>
+
+            <a href="menu.html">
+              تصفح قائمة الطعام
+              <i class="fa-solid fa-arrow-left"></i>
+            </a>
+          </div>
+
+          <!-- No Search Results -->
+          <div class="orders-no-results" id="orders-no-results" hidden>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3>لم نعثر على طلبات مطابقة</h3>
+            <p>جرّب تغيير كلمات البحث أو الفلتر.</p>
+            <button type="button" id="reset-orders-filter">
+              عرض جميع الطلبات
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Order Details Modal -->
+      <div class="order-modal" id="order-modal" aria-hidden="true">
+        <div class="order-modal-overlay" id="order-modal-overlay"></div>
+
+        <div
+          class="order-modal-content"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-order-title"
+        >
+          <div class="order-modal-header">
+            <div>
+              <span>تفاصيل الطلب</span>
+              <h2 id="modal-order-title">طلب رقم #</h2>
+            </div>
+
+            <button
+              type="button"
+              class="order-modal-close"
+              id="close-order-modal"
+              aria-label="إغلاق"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="order-modal-body" id="order-modal-body">
+            <!-- Details will be displayed by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <p>
+          © <span id="current-year"></span> لمة غزّاوية. جميع الحقوق محفوظة.
+        </p>
+        <p>صُنع بكل حب من فلسطين <i class="fa-solid fa-heart"></i></p>
+      </div>
+    </footer>
+
+    <script src="js/utils/storage.js"></script>
+    <script src="js/utils/helpers.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/orders.js"></script>
+  </body>
+</html>

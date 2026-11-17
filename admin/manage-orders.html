@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إدارة الطلبات | لمة غزّاوية</title>
+
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/orders-management.css" />
+  </head>
+  <body>
+    <div class="orders-page">
+      <aside class="orders-sidebar">
+        <div class="orders-brand">
+          <span>🍽️</span>
+          <div>
+            <h2>لمة غزّاوية</h2>
+            <p>لوحة الإدارة</p>
+          </div>
+        </div>
+
+        <nav class="orders-nav">
+          <a href="dashboard.html">🏠 الرئيسية</a>
+          <a href="manage-food.html">🍲 إدارة الوجبات</a>
+          <a href="manage-orders.html" class="active">📦 إدارة الطلبات</a>
+          <a href="manage-users.html">👥 إدارة المستخدمين</a>
+          <a href="../index.html">🌐 عرض الموقع</a>
+        </nav>
+
+        <button class="orders-logout" id="logoutBtn">تسجيل الخروج ↩</button>
+      </aside>
+
+      <main class="orders-main">
+        <header class="orders-header">
+          <div>
+            <h1>إدارة الطلبات 📦</h1>
+            <p>تابع طلبات العملاء وتحكم في مراحل تجهيزها وتوصيلها</p>
+          </div>
+
+          <div class="orders-date" id="currentDate"></div>
+        </header>
+
+        <!-- Statistics -->
+        <section class="orders-stats">
+          <div class="order-stat-card">
+            <div class="stat-icon">📋</div>
+            <div>
+              <p>كل الطلبات</p>
+              <h2 id="totalOrders">0</h2>
+            </div>
+          </div>
+
+          <div class="order-stat-card">
+            <div class="stat-icon">🆕</div>
+            <div>
+              <p>طلبات جديدة</p>
+              <h2 id="newOrders">0</h2>
+            </div>
+          </div>
+
+          <div class="order-stat-card">
+            <div class="stat-icon">👨‍🍳</div>
+            <div>
+              <p>قيد التحضير</p>
+              <h2 id="preparingOrders">0</h2>
+            </div>
+          </div>
+
+          <div class="order-stat-card">
+            <div class="stat-icon">🚚</div>
+            <div>
+              <p>تم التوصيل</p>
+              <h2 id="deliveredOrders">0</h2>
+            </div>
+          </div>
+
+          <div class="order-stat-card">
+            <div class="stat-icon">💰</div>
+            <div>
+              <p>إجمالي المبيعات</p>
+              <h2 id="totalSales">0 ₪</h2>
+            </div>
+          </div>
+        </section>
+
+        <!-- Orders list -->
+        <section class="orders-content">
+          <div class="orders-tools">
+            <div>
+              <h2>قائمة الطلبات</h2>
+              <p>عرض ومتابعة جميع طلبات المطعم</p>
+            </div>
+
+            <button class="orders-refresh-btn" id="refreshOrders">
+              ↻ تحديث القائمة
+            </button>
+          </div>
+
+          <div class="orders-filters">
+            <input
+              type="search"
+              id="orderSearch"
+              placeholder="ابحث برقم الطلب أو اسم العميل..."
+            />
+
+            <select id="orderStatusFilter">
+              <option value="all">كل الحالات</option>
+              <option value="new">جديد</option>
+              <option value="preparing">قيد التحضير</option>
+              <option value="ready">جاهز</option>
+              <option value="delivered">تم التوصيل</option>
+              <option value="cancelled">ملغي</option>
+            </select>
+
+            <select id="orderPaymentFilter">
+              <option value="all">كل طرق الدفع</option>
+              <option value="cash">نقدًا عند الاستلام</option>
+              <option value="card">بطاقة</option>
+            </select>
+          </div>
+
+          <div class="orders-table-wrapper">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th>رقم الطلب</th>
+                  <th>العميل</th>
+                  <th>التاريخ</th>
+                  <th>عدد الوجبات</th>
+                  <th>الإجمالي</th>
+                  <th>الدفع</th>
+                  <th>الحالة</th>
+                  <th>التفاصيل</th>
+                </tr>
+              </thead>
+
+              <tbody id="ordersTableBody">
+                <!-- Orders are rendered with JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div id="emptyOrders" class="empty-orders hidden">
+            <span>📦</span>
+            <h3>لا توجد طلبات</h3>
+            <p>لم نعثر على طلبات تطابق خيارات البحث.</p>
+          </div>
+        </section>
+
+        <footer class="orders-footer">
+          جميع الحقوق محفوظة © 2026 - لمة غزّاوية
+        </footer>
+      </main>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="order-modal hidden" id="orderModal">
+      <div class="order-modal-content">
+        <div class="modal-header">
+          <div>
+            <h2>تفاصيل الطلب</h2>
+            <p id="modalOrderNumber">رقم الطلب</p>
+          </div>
+
+          <button class="modal-close" id="closeOrderModal">×</button>
+        </div>
+
+        <div id="orderDetailsContent">
+          <!-- Order details appear here -->
+        </div>
+
+        <div class="modal-footer">
+          <button class="modal-close-btn" id="closeOrderModalBottom">
+            إغلاق
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script src="js/orders-management.js"></script>
+  </body>
+</html>
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="إدارة طلبات مطعم لمة غزّاوية" />
+    <title>إدارة الطلبات | لمة غزّاوية</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- Admin Orders CSS -->
+    <link rel="stylesheet" href="../css/admin/manage-orders.css" />
+  </head>
+
+  <body class="admin-page">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <i class="fas fa-utensils"></i>
+        </div>
+
+        <div>
+          <h3>لمة غزّاوية</h3>
+          <span>لوحة الإدارة</span>
+        </div>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section-title">القائمة الرئيسية</div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="dashboard.html">
+            <i class="fas fa-chart-pie"></i>
+            <span>لوحة التحكم</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="manage-food.html">
+            <i class="fas fa-utensils"></i>
+            <span>إدارة الأطعمة</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="add-food.html">
+            <i class="fas fa-plus-circle"></i>
+            <span>إضافة وجبة</span>
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="manage-orders.html">
+            <i class="fas fa-shopping-bag"></i>
+            <span>إدارة الطلبات</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="manage-users.html">
+            <i class="fas fa-users"></i>
+            <span>إدارة المستخدمين</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-section-title">النظام</div>
+
+      <ul class="sidebar-menu">
+        <li>
+          <a href="../index.html" target="_blank">
+            <i class="fas fa-globe"></i>
+            <span>زيارة الموقع</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="admin-login.html" id="admin-logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>تسجيل الخروج</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <i class="fas fa-heart"></i>
+        <p>صُنع بحب من غزة</p>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <!-- Top Navbar -->
+      <header class="admin-topbar">
+        <div class="topbar-right">
+          <button class="sidebar-toggle" id="sidebar-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <div class="page-title">
+            <h1>إدارة الطلبات</h1>
+            <p>متابعة وإدارة طلبات العملاء</p>
+          </div>
+        </div>
+
+        <div class="topbar-left">
+          <div class="admin-date">
+            <i class="far fa-calendar-alt"></i>
+            <span id="current-date">--</span>
+          </div>
+
+          <div class="admin-profile">
+            <div class="admin-avatar">
+              <i class="fas fa-user-shield"></i>
+            </div>
+
+            <div>
+              <strong>مدير النظام</strong>
+              <small>Administrator</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="admin-content">
+        <!-- Welcome -->
+        <section class="orders-welcome">
+          <div>
+            <span class="welcome-label">مركز إدارة الطلبات</span>
+
+            <h2>جميع الطلبات في مكان واحد</h2>
+
+            <p>تابع طلبات عملائك، وراقب حالة التجهيز والتوصيل بكل سهولة.</p>
+          </div>
+
+          <div class="welcome-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+        </section>
+
+        <!-- Statistics -->
+        <section class="order-stats-grid">
+          <div class="order-stat-card">
+            <div class="stat-icon total-icon">
+              <i class="fas fa-shopping-bag"></i>
+            </div>
+
+            <div class="stat-info">
+              <p>إجمالي الطلبات</p>
+              <h3 id="total-orders">0</h3>
+              <span>جميع الطلبات المسجلة</span>
+            </div>
+          </div>
+
+          <div class="order-stat-card">
+            <div class="stat-icon pending-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+
+            <div class="stat-info">
+              <p>قيد الانتظار</p>
+              <h3 id="pending-orders">0</h3>
+              <span>تحتاج إلى مراجعة</span>
+            </div>
+          </div>
+
+          <div class="order-stat-card">
+            <div class="stat-icon preparing-icon">
+              <i class="fas fa-fire"></i>
+            </div>
+
+            <div class="stat-info">
+              <p>قيد التجهيز</p>
+              <h3 id="preparing-orders">0</h3>
+              <span>يتم تجهيزها حالياً</span>
+            </div>
+          </div>
+
+          <div class="order-stat-card">
+            <div class="stat-icon completed-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+
+            <div class="stat-info">
+              <p>طلبات مكتملة</p>
+              <h3 id="completed-orders">0</h3>
+              <span>تم تسليمها للعملاء</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Orders Section -->
+        <section class="orders-management-section">
+          <div class="section-heading">
+            <div>
+              <h2>قائمة الطلبات</h2>
+              <p>استعرض جميع الطلبات وتحكم في حالتها</p>
+            </div>
+
+            <button class="btn-export-orders" id="export-orders">
+              <i class="fas fa-file-export"></i>
+              تصدير الطلبات
+            </button>
+          </div>
+
+          <!-- Filters -->
+          <div class="orders-filters">
+            <div class="orders-search">
+              <i class="fas fa-search"></i>
+
+              <input
+                type="text"
+                id="order-search"
+                placeholder="ابحث برقم الطلب أو اسم العميل..."
+              />
+            </div>
+
+            <div class="filter-select-wrapper">
+              <i class="fas fa-filter"></i>
+
+              <select id="status-filter">
+                <option value="all">جميع الحالات</option>
+                <option value="pending">قيد الانتظار</option>
+                <option value="preparing">قيد التجهيز</option>
+                <option value="on-the-way">في الطريق</option>
+                <option value="completed">مكتمل</option>
+                <option value="cancelled">ملغي</option>
+              </select>
+            </div>
+
+            <div class="filter-select-wrapper">
+              <i class="fas fa-sort"></i>
+
+              <select id="order-sort">
+                <option value="newest">الأحدث أولاً</option>
+                <option value="oldest">الأقدم أولاً</option>
+                <option value="highest">الأعلى سعراً</option>
+                <option value="lowest">الأقل سعراً</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Orders Table -->
+          <div class="orders-table-container">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th>رقم الطلب</th>
+                  <th>العميل</th>
+                  <th>التاريخ</th>
+                  <th>عدد الوجبات</th>
+                  <th>الإجمالي</th>
+                  <th>حالة الطلب</th>
+                  <th>الإجراءات</th>
+                </tr>
+              </thead>
+
+              <tbody id="orders-table-body">
+                <!-- Orders generated by JavaScript -->
+              </tbody>
+            </table>
+
+            <!-- Empty State -->
+            <div class="orders-empty-state" id="orders-empty-state" hidden>
+              <div class="empty-icon">
+                <i class="fas fa-box-open"></i>
+              </div>
+
+              <h3>لا توجد طلبات</h3>
+
+              <p>لم يتم العثور على أي طلبات مطابقة لبحثك.</p>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="orders-pagination" id="orders-pagination">
+            <span id="orders-pagination-info"> عرض 0 من 0 طلب </span>
+
+            <div class="pagination-buttons">
+              <button id="prev-page" disabled>
+                <i class="fas fa-chevron-right"></i>
+              </button>
+
+              <span id="current-page">1</span>
+
+              <button id="next-page" disabled>
+                <i class="fas fa-chevron-left"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer class="admin-footer">
+        <p>© 2026 لمة غزّاوية - جميع الحقوق محفوظة</p>
+      </footer>
+    </main>
+
+    <!-- Order Details Modal -->
+    <div class="modal fade" id="order-details-modal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">
+              <i class="fas fa-receipt"></i>
+              تفاصيل الطلب
+            </h5>
+
+            <button
+              type="button"
+              class="btn-close ms-0"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+
+          <div class="modal-body" id="order-details-content">
+            <!-- Details generated by JavaScript -->
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">
+              إغلاق
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="delete-order-modal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center p-4">
+            <div class="delete-modal-icon">
+              <i class="fas fa-trash-alt"></i>
+            </div>
+
+            <h4>حذف الطلب؟</h4>
+
+            <p>
+              هل أنت متأكد من رغبتك في حذف هذا الطلب؟ لا يمكن التراجع عن هذه
+              العملية.
+            </p>
+
+            <div class="delete-modal-actions">
+              <button class="btn btn-secondary" data-bs-dismiss="modal">
+                إلغاء
+              </button>
+
+              <button class="btn btn-danger" id="confirm-delete-order">
+                نعم، احذف الطلب
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="admin-toast-container" class="admin-toast-container"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Utilities -->
+    <script src="../js/utils/storage.js"></script>
+    <script src="../js/utils/helpers.js"></script>
+
+    <!-- Admin Orders JS -->
+    <script src="../js/admin/manage-orders.js"></script>
+  </body>
+</html>

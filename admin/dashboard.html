@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة التحكم | لمة غزّاوية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/admin.css" />
+  </head>
+  <body class="admin-dashboard-page">
+    <div class="admin-layout">
+      <!-- Sidebar -->
+      <aside class="admin-sidebar" id="admin-sidebar">
+        <a href="../index.html" class="admin-sidebar-brand">
+          <span class="admin-brand-icon">
+            <i class="fa-solid fa-utensils"></i>
+          </span>
+
+          <span>
+            لمة <strong>غزّاوية</strong>
+            <small>لوحة الإدارة</small>
+          </span>
+        </a>
+
+        <div class="sidebar-section-label">القائمة الرئيسية</div>
+
+        <nav class="admin-navigation">
+          <a href="dashboard.html" class="admin-nav-link active">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>لوحة التحكم</span>
+          </a>
+
+          <a href="manage-food.html" class="admin-nav-link">
+            <i class="fa-solid fa-bowl-food"></i>
+            <span>إدارة الوجبات</span>
+          </a>
+
+          <a href="manage-orders.html" class="admin-nav-link">
+            <i class="fa-solid fa-receipt"></i>
+            <span>إدارة الطلبات</span>
+            <span class="sidebar-count" id="sidebar-orders-count">0</span>
+          </a>
+
+          <a href="manage-users.html" class="admin-nav-link">
+            <i class="fa-solid fa-users"></i>
+            <span>إدارة المستخدمين</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-section-label">أخرى</div>
+
+        <nav class="admin-navigation">
+          <a href="../index.html" class="admin-nav-link">
+            <i class="fa-solid fa-globe"></i>
+            <span>زيارة الموقع</span>
+          </a>
+
+          <button
+            type="button"
+            class="admin-nav-link logout-link"
+            id="admin-logout"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>تسجيل الخروج</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-admin-avatar">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+
+          <div>
+            <strong>مدير النظام</strong>
+            <small>Administrator</small>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="admin-main">
+        <!-- Topbar -->
+        <header class="admin-topbar">
+          <div class="admin-topbar-start">
+            <button
+              type="button"
+              class="sidebar-toggle"
+              id="sidebar-toggle"
+              aria-label="فتح القائمة"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div>
+              <h1>لوحة التحكم</h1>
+              <p>مرحبًا بك في إدارة لمة غزّاوية.</p>
+            </div>
+          </div>
+
+          <div class="admin-topbar-actions">
+            <div class="admin-current-date">
+              <i class="fa-regular fa-calendar"></i>
+              <span id="admin-current-date">--</span>
+            </div>
+
+            <div class="admin-topbar-avatar">
+              <i class="fa-solid fa-user-shield"></i>
+            </div>
+          </div>
+        </header>
+
+        <!-- Content -->
+        <div class="admin-content">
+          <div class="admin-page-heading">
+            <div>
+              <span>نظرة عامة</span>
+              <h2>ملخص نشاط المطعم</h2>
+              <p>تابع أداء المطعم والطلبات من مكان واحد.</p>
+            </div>
+
+            <a href="../index.html" target="_blank" class="visit-website-btn">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              زيارة الموقع
+            </a>
+          </div>
+
+          <!-- Statistics -->
+          <section class="admin-stats-grid">
+            <article class="admin-stat-card">
+              <div class="admin-stat-top">
+                <span>إجمالي الطلبات</span>
+                <div class="admin-stat-icon stat-purple">
+                  <i class="fa-solid fa-receipt"></i>
+                </div>
+              </div>
+
+              <strong id="dashboard-total-orders">0</strong>
+              <small>جميع الطلبات المسجلة</small>
+            </article>
+
+            <article class="admin-stat-card">
+              <div class="admin-stat-top">
+                <span>إجمالي المبيعات</span>
+                <div class="admin-stat-icon stat-gold">
+                  <i class="fa-solid fa-sack-dollar"></i>
+                </div>
+              </div>
+
+              <strong id="dashboard-total-sales">0 ₪</strong>
+              <small>قيمة الطلبات المسجلة</small>
+            </article>
+
+            <article class="admin-stat-card">
+              <div class="admin-stat-top">
+                <span>العملاء</span>
+                <div class="admin-stat-icon stat-blue">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+              </div>
+
+              <strong id="dashboard-total-users">0</strong>
+              <small>الحسابات المسجلة</small>
+            </article>
+
+            <article class="admin-stat-card">
+              <div class="admin-stat-top">
+                <span>الوجبات</span>
+                <div class="admin-stat-icon stat-green">
+                  <i class="fa-solid fa-bowl-food"></i>
+                </div>
+              </div>
+
+              <strong id="dashboard-total-food">12</strong>
+              <small>الوجبات المتاحة في القائمة</small>
+            </article>
+          </section>
+
+          <!-- Secondary Statistics -->
+          <section class="admin-secondary-stats">
+            <div class="admin-secondary-card">
+              <div class="secondary-icon pending-secondary">
+                <i class="fa-regular fa-clock"></i>
+              </div>
+
+              <div>
+                <span>طلبات قيد المراجعة</span>
+                <strong id="dashboard-pending-orders">0</strong>
+              </div>
+            </div>
+
+            <div class="admin-secondary-card">
+              <div class="secondary-icon processing-secondary">
+                <i class="fa-solid fa-fire-burner"></i>
+              </div>
+
+              <div>
+                <span>طلبات قيد التجهيز</span>
+                <strong id="dashboard-processing-orders">0</strong>
+              </div>
+            </div>
+
+            <div class="admin-secondary-card">
+              <div class="secondary-icon completed-secondary">
+                <i class="fa-solid fa-circle-check"></i>
+              </div>
+
+              <div>
+                <span>طلبات مكتملة</span>
+                <strong id="dashboard-completed-orders">0</strong>
+              </div>
+            </div>
+          </section>
+
+          <!-- Recent Orders -->
+          <section class="admin-panel">
+            <div class="admin-panel-header">
+              <div>
+                <h3>أحدث الطلبات</h3>
+                <p>آخر الطلبات التي وصلت إلى المطعم.</p>
+              </div>
+
+              <a href="manage-orders.html" class="admin-view-all">
+                عرض الكل
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </div>
+
+            <div class="admin-table-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>رقم الطلب</th>
+                    <th>العميل</th>
+                    <th>التاريخ</th>
+                    <th>المبلغ</th>
+                    <th>الحالة</th>
+                  </tr>
+                </thead>
+
+                <tbody id="recent-orders-body">
+                  <tr>
+                    <td colspan="5" class="admin-table-empty">
+                      لا توجد طلبات حتى الآن.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Quick Actions -->
+          <section class="admin-quick-actions">
+            <h3>إجراءات سريعة</h3>
+
+            <div class="quick-actions-grid">
+              <a href="add-food.html" class="quick-action-card">
+                <div class="quick-action-icon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+
+                <div>
+                  <strong>إضافة وجبة</strong>
+                  <span>أضف وجبة جديدة للقائمة</span>
+                </div>
+
+                <i class="fa-solid fa-chevron-left quick-arrow"></i>
+              </a>
+
+              <a href="manage-orders.html" class="quick-action-card">
+                <div class="quick-action-icon">
+                  <i class="fa-solid fa-list-check"></i>
+                </div>
+
+                <div>
+                  <strong>متابعة الطلبات</strong>
+                  <span>راجع الطلبات وحالاتها</span>
+                </div>
+
+                <i class="fa-solid fa-chevron-left quick-arrow"></i>
+              </a>
+
+              <a href="manage-users.html" class="quick-action-card">
+                <div class="quick-action-icon">
+                  <i class="fa-solid fa-user-group"></i>
+                </div>
+
+                <div>
+                  <strong>إدارة العملاء</strong>
+                  <span>استعرض حسابات العملاء</span>
+                </div>
+
+                <i class="fa-solid fa-chevron-left quick-arrow"></i>
+              </a>
+            </div>
+          </section>
+
+          <footer class="admin-footer">
+            <p>
+              © <span id="admin-current-year"></span> لمة غزّاوية - لوحة الإدارة
+            </p>
+          </footer>
+        </div>
+      </main>
+    </div>
+
+    <div class="admin-sidebar-overlay" id="admin-sidebar-overlay"></div>
+
+    <script src="../js/utils/storage.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>

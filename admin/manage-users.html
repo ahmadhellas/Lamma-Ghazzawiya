@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>إدارة المستخدمين | لمة غزّاوية</title>
+
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/manage-users.css" />
+  </head>
+  <body>
+    <div class="users-page">
+      <aside class="users-sidebar">
+        <div class="users-brand">
+          <span>🍽️</span>
+          <div>
+            <h2>لمة غزّاوية</h2>
+            <p>لوحة الإدارة</p>
+          </div>
+        </div>
+
+        <nav class="users-nav">
+          <a href="dashboard.html">🏠 الرئيسية</a>
+          <a href="manage-food.html">🍲 إدارة الوجبات</a>
+          <a href="manage-orders.html">📦 إدارة الطلبات</a>
+          <a href="manage-users.html" class="active">👥 إدارة المستخدمين</a>
+          <a href="../index.html">🌐 عرض الموقع</a>
+        </nav>
+
+        <button class="users-logout" id="logoutBtn">تسجيل الخروج ↩</button>
+      </aside>
+
+      <main class="users-main">
+        <header class="users-header">
+          <div>
+            <h1>إدارة المستخدمين 👥</h1>
+            <p>إدارة حسابات العملاء ومتابعة بياناتهم</p>
+          </div>
+
+          <div class="users-date" id="usersDate"></div>
+        </header>
+
+        <!-- Statistics -->
+
+        <section class="users-stats">
+          <div class="user-stat-card">
+            <span>👥</span>
+            <div>
+              <p>إجمالي المستخدمين</p>
+              <h2 id="totalUsers">0</h2>
+            </div>
+          </div>
+
+          <div class="user-stat-card">
+            <span>✅</span>
+            <div>
+              <p>الحسابات النشطة</p>
+              <h2 id="activeUsers">0</h2>
+            </div>
+          </div>
+
+          <div class="user-stat-card">
+            <span>⛔</span>
+            <div>
+              <p>الحسابات الموقوفة</p>
+              <h2 id="blockedUsers">0</h2>
+            </div>
+          </div>
+
+          <div class="user-stat-card">
+            <span>🆕</span>
+            <div>
+              <p>المستخدمون الجدد</p>
+              <h2 id="newUsers">0</h2>
+            </div>
+          </div>
+        </section>
+
+        <!-- Users Table -->
+
+        <section class="users-content">
+          <div class="users-tools">
+            <div>
+              <h2>قائمة المستخدمين</h2>
+              <p>ابحث عن العملاء وتحكم في حساباتهم</p>
+            </div>
+
+            <button class="users-refresh-btn" id="refreshUsers">
+              ↻ تحديث القائمة
+            </button>
+          </div>
+
+          <div class="users-filters">
+            <input
+              type="search"
+              id="userSearch"
+              placeholder="ابحث بالاسم أو البريد أو الهاتف..."
+            />
+
+            <select id="userStatusFilter">
+              <option value="all">كل الحالات</option>
+              <option value="active">نشط</option>
+              <option value="blocked">موقوف</option>
+            </select>
+          </div>
+
+          <div class="users-table-wrapper">
+            <table class="users-table">
+              <thead>
+                <tr>
+                  <th>المستخدم</th>
+                  <th>البريد الإلكتروني</th>
+                  <th>رقم الهاتف</th>
+                  <th>تاريخ التسجيل</th>
+                  <th>عدد الطلبات</th>
+                  <th>الحالة</th>
+                  <th>الإجراءات</th>
+                </tr>
+              </thead>
+
+              <tbody id="usersTableBody">
+                <!-- Users appear here -->
+              </tbody>
+            </table>
+          </div>
+
+          <div id="emptyUsers" class="empty-users hidden">
+            <span>👥</span>
+            <h3>لا يوجد مستخدمون</h3>
+            <p>لم نعثر على مستخدمين يطابقون البحث.</p>
+          </div>
+        </section>
+
+        <footer class="users-footer">
+          جميع الحقوق محفوظة © 2026 - لمة غزّاوية
+        </footer>
+      </main>
+    </div>
+
+    <!-- User Details Modal -->
+
+    <div class="user-modal hidden" id="userModal">
+      <div class="user-modal-content">
+        <div class="user-modal-header">
+          <div>
+            <h2>تفاصيل المستخدم</h2>
+            <p>معلومات حساب العميل</p>
+          </div>
+
+          <button class="user-modal-close" id="closeUserModal">×</button>
+        </div>
+
+        <div id="userDetailsContent"></div>
+
+        <div class="user-modal-footer">
+          <button class="user-modal-close-btn" id="closeUserModalBottom">
+            إغلاق
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script src="js/manage-users.js"></script>
+  </body>
+</html>
